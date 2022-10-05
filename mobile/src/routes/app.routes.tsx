@@ -6,16 +6,16 @@ import { Game } from "../screens/Game"
 const{ Navigator, Screen } = createNativeStackNavigator()
 
 export function AppRoute(){
-    return(
-        <Navigator screenOptions={{ headerShown: false}}>
-            <Screen 
-            name="home"
-            component={Home}
-            />
-            <Screen 
-            name="game"
-            component={Game}
-            />
-        </Navigator>
-    )
+  return(
+    <Navigator screenOptions={{ headerShown: false}}>
+      <Screen 
+        name="home"
+        component={Home}
+      />
+      <Screen 
+        name="game"
+        component={Game}
+      />
+    </Navigator>
+  )
 }
