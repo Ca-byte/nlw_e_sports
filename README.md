@@ -3,8 +3,6 @@
     <img alt="" src="./web/public/logo-nlw-esports.svg" width="200px">
 </p>
 
-
-
 <p align="center">
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -30,6 +28,8 @@
   <img alt="" src="./web/public/mobile-game-clipboard.jpg" width="200px">
   <img alt="" src="./web/public/mobile-game-pn.jpg" width="200px">
 </p>
+---
+
 ## 🚀 Technologies ##
 
 This project was developed using the following technologies:
