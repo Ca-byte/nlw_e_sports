@@ -4,6 +4,7 @@ import * as ToggleGroup from '@radix-ui/react-toggle-group';
 import { Check, GameController } from 'phosphor-react'
 import { Input } from '../form/Input'
 import { useEffect, useState, FormEvent } from 'react'
+import axios from 'axios';
 
 interface Game {
     id: string;
@@ -18,18 +19,39 @@ export function CreateAdModal(){
 
 
   useEffect(()=> {
-    fetch('http://localhost:3333/games')
-    .then(Response => Response.json()
-    .then(data => {
-      setGames(data)
-    }))
+   axios('http://localhost:3333/games').then(response => {
+      setGames(response.data)
+    })
   },[])
 
-  function handleCreateAd(event:FormEvent){
+  async function handleCreateAd(event:FormEvent){
     event.preventDefault()
     
     const formData = new FormData(event.target as HTMLFormElement)
     const data = Object.fromEntries(formData)
+
+    if(!data.name){
+      return;
+    }
+
+    try {
+      await axios.post(`http://localhost:3333/games/${data.game}/ads`, {
+    
+      name: data.name,
+      yearsPlaying: Number(data.yearsPlaying),
+      discord: data.discord,
+      weekDays: weekDays.map(Number),
+      hourStart: data.hourStart,
+      hourEnd: data.hourEnd,
+      useVoiceChannel: useVoiceChannel
+    
+    })
+    alert('Your Ad was published!')
+    } catch (error) {
+      console.log(error)
+      alert('Error creating the Ad!')
+      
+    }
   }
 
 
